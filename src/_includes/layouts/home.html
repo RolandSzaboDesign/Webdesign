@@ -1,0 +1,116 @@
+---
+permalink: /{{ locale }}/
+layout: layouts/base.html
+translation: home
+css: home
+---
+
+<main class="main home">
+	<header class="section section--top">
+		<div class="container">
+			<h1>{{ hero.title }}</h1>
+			<p class="tagline h3">{{ hero.tagline }}</p>
+			<p>{{ hero.paragraph }}</p>
+			<div class="btns home__buttons">
+				<a class="btn btn--primary" href="#start">{{ hero.button1 }}</a>
+				<a class="btn" href="/{{ locale }}/{{ site[locale].slugServices }}/">{{ hero.button2 }}</a>
+			</div>
+		</div>
+	</header>
+
+	<section class="section bg-dark" id="start">
+		<div class="container">
+			<h2 class="section__title">{{ comparison.title }}</h2>
+			<p>{{ comparison.text }}</p>
+			<div class="table">
+				<table>
+					<thead>
+						<tr>
+							<th></th>
+							<th><strong>{{ comparison.thead_they }}</strong></th>
+							<th><strong>{{ comparison.thead_me }}</strong></th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for item in comparison.items %}
+							<tr>
+								<th><strong>{{ item.title }}</strong></th>
+								<td><i class="comparison-table-icon fas fa-face-frown-open text-danger icon-left"></i> {{ item.they }}</td>
+								<td><i class="comparison-table-icon fas fa-thumbs-up text-success icon-left"></i> {{ item.me }}</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+			<div class="cta">
+				<h3>{{ comparison.cta_title }}</h3>
+				<p>{{ comparison.cta_text }}</p>
+				<a class="btn btn--primary mt-2" href="/{{ locale }}/{{ site[locale].slugServices }}/">{{ comparison.cta_button }}</a>
+			</div>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container">
+			<h2 class="section__title">{{ how.title }}</h2>
+			<ul class="checklist">
+				{% for item in how.items %}
+					<li class="checklist__item">
+						<i class="checklist__icon fas fa-fw {{ item.icon }} text-yellow"></i>
+						<h3 class="checklist__title h4">{{ item.title }}</h3>
+						<p class="checklist__text">{{ item.text }}</p>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</section>
+
+	<section class="section bg-dark">
+		<div class="container">
+			<h2 class="section__title">{{ testimonials.title }}</h2>
+			<p>{{ testimonials.text }}</p>
+			<div class="testimonials">
+				{% for item in testimonials.items %}
+					<blockquote class="testimonial testimonial--alt">
+						<p class="testimonial__text">{{ item[locale].case_study }}</p>
+						<footer class="testimonial__footer">
+							<cite class="testimonial__name">{{ item[locale].name }}</cite> &ndash; <a class="testimonial__link" href="{{ item.website_url }}" target="_blank" rel="noreferrer noopener">{{ item.website_name }}</a>
+						</footer>
+					</blockquote>
+				{% endfor %}
+			</div>
+			<div class="cta">
+				<h3>{{ testimonials.cta_title }}</h3>
+				<p>{{ testimonials.cta_text }}</p>
+				<a class="btn btn--primary mt-2" href="/{{ locale }}/{{ site[locale].slugServices }}/">{{ testimonials.cta_button }}</a>
+			</div>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container">
+			<h2 class="section__title">{{ notforyou.title }}</h2>
+			<p>{{ notforyou.text }}</p>
+			<h3>{{ notforyou.no_title }}</h3>
+			<ul>
+				{% for item in notforyou.no_items %}
+					<li><i class="fas fa-xmark-circle text-danger icon-left"></i> {{ item }}</li>
+				{% endfor %}
+			</ul>
+			<h3>{{ notforyou.yes_title }}</h3>
+			<ul>
+				{% for item in notforyou.yes_items %}
+					<li><i class="fas fa-check-circle text-success icon-left"></i> {{ item }}</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</section>
+
+	<section class="section cta">
+		<div class="container">
+			<h2 class="section__title">{{ cta.title }}</h2>
+			<p>{{ cta.text }}</p>
+			<a class="btn btn--primary mt-2" href="/{{ locale }}/{{ site[locale].slugServices }}/">{{ cta.button }}</a>
+		</div>
+	</section>
+</main>

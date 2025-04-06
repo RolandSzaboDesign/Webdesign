@@ -1,31 +1,22 @@
-http://rolandszabo.design/							https://rolandszabo.design/
-https://www.rolandszabo.design/						https://rolandszabo.design/
-/bookmarks											https://rolandszabo.design/
-/process											https://rolandszabo.design/
-/process/											https://rolandszabo.design/
-/uses												https://rolandszabo.design/
-/uses/												https://rolandszabo.design/
+/                                     /hu/           301
 
-http://rolandszabo.design/about/					https://rolandszabo.design/about/
-/about												https://rolandszabo.design/about/
+http://rolandszabo.design/*           /:splat        301!
+https://www.rolandszabo.design/*      /:splat        301!
 
-http://rolandszabo.design/projects/					https://rolandszabo.design/portfolio/
-/projects											https://rolandszabo.design/portfolio/
+/bookmarks                            /              301
+/process                              /              301
+/process/                             /              301
+/uses                                 /              301
+/uses/                                /              301
 
-http://rolandszabo.design/contact/					https://rolandszabo.design/hire-me/
-http://rolandszabo.design/hire/						https://rolandszabo.design/hire-me/
-/contact											https://rolandszabo.design/hire-me/
-/contact/											https://rolandszabo.design/hire-me/
-/hire												https://rolandszabo.design/hire-me/
-/hire/												https://rolandszabo.design/hire-me/
+/about                                /about/        301
 
-/projects/ananas/									https://rolandszabo.design/portfolio/
-/projects/autoseo/									https://rolandszabo.design/portfolio/
-/projects/buffered-app/								https://rolandszabo.design/portfolio/
-/projects/csorbapeterart/							https://rolandszabo.design/portfolio/
-/projects/laczadesign/								https://rolandszabo.design/portfolio/
-/projects/lotrem-ipsum/								https://rolandszabo.design/portfolio/
-/projects/proprivacy/								https://rolandszabo.design/portfolio/
-/projects/retalk/									https://rolandszabo.design/portfolio/
-/projects/roland-szabo-photography/					https://rolandszabo.design/portfolio/
-/projects/twitteraudit/								https://rolandszabo.design/portfolio/
+/projects                             /portfolio/    301
+/projects/*                           /portfolio/    301
+
+/contact                              /hire-me/      301
+/contact/                             /hire-me/      301
+/hire                                 /hire-me/      301
+/hire/                                /hire-me/      301
+http://rolandszabo.design/contact/    /hire-me/      301
+http://rolandszabo.design/hire/       /hire-me/      301

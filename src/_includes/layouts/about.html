@@ -1,0 +1,43 @@
+---
+permalink: /{{ locale }}/{{ site[locale].slugAbout }}/
+layout: layouts/base.html
+translation: about
+css: about
+---
+
+<main class="main">
+	<header class="section section--top">
+		<div class="container">
+			<h1>{{ hero.title }}</h1>
+			<p class="h3">{{ hero.tagline }}</p>
+			<p>{{ hero.text_1 }}</p>
+			<p>{{ hero.text_2 }}</p>
+			<p>{{ hero.text_3 }}</p>
+			<a class="btn btn--primary mt-2" href="#start">{{ hero.button }}</a>
+		</div>
+	</header>
+
+	<section class="section bg-dark" id="start">
+		<div class="container">
+			<h2 class="section__title">{{ timeline.title }}</h2>
+			<ol class="timeline">
+				{% for item in timeline.items %}
+					<li class="milestone">
+						<span class="milestone__year">{{ item.year }}</span>
+						<p class="milestone__title">{{ item.title }}</p>
+						<p class="milestone__text">{{ item.text }}</p>
+					</li>
+				{% endfor %}
+			</ol>
+
+			<div class="cta">
+				<h2 class="section__title">{{ cta.title }}</h2>
+				<p>{{ cta.text }}</p>
+				<div class="button-with-text">
+					<a class="btn btn--primary mt-2" href="/{{ locale }}/{{ site[locale].slugHireMe }}/">{{ cta.button }}</a>
+					<span class="button-with-text__text">{{ cta.button_subtext }}</span>
+				</div>
+			</div>
+		</div>
+	</section>
+</main>

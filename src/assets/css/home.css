@@ -1,11 +1,5 @@
-.home__tagline {
-	margin-top: 0;
-	margin-bottom: 3rem;
-}
-
-.simplified {
-	font-weight: 700;
-	color: var(--text-light);
+.home__buttons {
+	margin-top: 4rem;
 }
 
 .supercharged {
@@ -22,37 +16,8 @@
 	-webkit-text-fill-color: initial;
 }
 
-.benefits {
-	display: grid;
-}
-
 @media only screen and (max-width: 767.98px) {
-	.benefits {
-		grid-gap: 3rem;
+	.comparison-table-icon.fas {
+		display: none;
 	}
-}
-
-@media only screen and (min-width: 768px) {
-	.benefits {
-		grid-template-columns: repeat(2, 1fr);
-		grid-gap: 4rem 6rem;
-	}
-}
-
-@media only screen and (max-width: 767.98px) {
-	.benefits__item {
-		padding-top: 1.5rem;
-		border-top: .5rem solid var(--bg-dark);
-	}
-}
-
-@media only screen and (min-width: 768px) {
-	.benefits__item {
-		padding-top: 2rem;
-		border-top: 1rem solid var(--bg-dark);
-	}
-}
-
-.benefits__title {
-	margin-top: 0;
 }

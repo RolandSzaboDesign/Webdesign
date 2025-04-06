@@ -1,0 +1,95 @@
+---
+permalink: /{{ locale }}/{{ site[locale].slugServices }}/
+layout: layouts/base.html
+translation: services
+css: services
+---
+
+<main class="main">
+	<header class="section section--top">
+		<div class="container">
+			<h1>{{ hero.title }}</h1>
+			<p class="h3">{{ hero.tagline }} <i class="fas fa-check text-success"></i></p>
+			<p>{{ hero.text_1 }}</p>
+			<p>{{ hero.text_2 }}</p>
+			<a class="btn btn--primary mt-2" href="#start">{{ hero.button }}</a>
+		</div>
+	</header>
+
+	<section class="section bg-dark" id="start">
+		<div class="container">
+			<h2 class="section__title">{{ base.title }}</h2>
+			<p>{{ base.text_1 }}</p>
+			<article class="step">
+				<h3 class="step__title">
+					<span class="step__number">1.</span>
+					{{ base.before.title }}
+				</h3>
+				<div class="step__content">
+					<p class="step__text">{{ base.before.text }}</p>
+					<ul>
+						{% for item in base.before.items %}
+							<li><i class="fas fa-check-circle text-success icon-left"></i> {{ item }}</li>
+						{% endfor %}
+					</ul>
+				</div>
+			</article>
+			<article class="step">
+				<h3 class="step__title">
+					<span class="step__number">2.</span>
+					{{ base.during.title }}
+				</h3>
+				<div class="step__content">
+					<p class="step__text">{{ base.during.text }}</p>
+					<ul>
+						{% for item in base.during.items %}
+							<li><i class="fas fa-check-circle text-success icon-left"></i> {{ item }}</li>
+						{% endfor %}
+					</ul>
+				</div>
+			</article>
+			<article class="step">
+				<h3 class="step__title">
+					<span class="step__number">3.</span>
+					{{ base.after.title }}
+				</h3>
+				<div class="step__content">
+					<p class="step__text">{{ base.after.text }}</p>
+					<ul>
+						{% for item in base.after.items %}
+							<li><i class="fas fa-check-circle text-success icon-left"></i> {{ item }}</li>
+						{% endfor %}
+					</ul>
+				</div>
+			</article>
+			<p>{{ base.text_2 }}</p>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container">
+			<h2 class="section__title">{{ extras.title }}</h2>
+			<p>{{ extras.text }}</p>
+			<ul class="extras">
+				{% for item in extras.items %}
+					<li class="extra">
+						<h3 class="extra__title"><i class="extra__icon fas {{ item.icon }} text-yellow icon-left"></i> {{ item.title }}</h3>
+						<p class="extra__text">{{ item.text }}</p>
+						<p class="extra__recommended"><strong>{{ extras.recommended_for }}:</strong> <em>{{ item.recommended }}</em></p>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</section>
+
+	<section class="section cta">
+		<div class="container">
+			<h2 class="section__title">{{ cta.title }}</h2>
+			<p>{{ cta.text }}</p>
+			<div class="button-with-text">
+				<a class="btn btn--primary mt-2" href="/{{ locale }}/{{ site[locale].slugHireMe }}/">{{ cta.button }}</a>
+				<span class="button-with-text__text">{{ cta.button_subtext }}</span>
+			</div>
+		</div>
+	</section>
+</main>

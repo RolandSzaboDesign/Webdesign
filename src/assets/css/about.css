@@ -1,73 +1,60 @@
-.about-photo {
-	clip-path: var(--rhombus);
-	display: flex;
-	max-width: 400px;
-	max-height: 400px;
-	background-color: var(--bg-dark);
-}
-
-@media only screen and (max-width: 767px) {
-	.about-photo {
-		margin: 0 auto 2rem;
-		padding: 1rem;
-	}
-}
-
-@media only screen and (min-width: 768px) {
-	.about-photo {
-		float: right;
-		margin-left: 5rem;
-		padding: 2rem;
-		shape-outside: polygon(50% 0%, 50% 100%, 0% 50%);
-	}
-}
-
-.about-photo__image {
-	clip-path: var(--rhombus);
-}
-
-.experience {
+.timeline {
 	display: grid;
+	grid-gap: 2rem;
+	margin: 0;
+	border-left: .5rem solid var(--bg-light);
+}
+
+.milestone {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	grid-gap: 0 2rem;
 	align-items: start;
 }
 
-@media only screen and (max-width: 767px) {
-	.experience {
-		grid-gap: 2rem;
+.milestone__year {
+	grid-row: 1 / 3;
+	display: inline-block;
+	width: 8rem;
+	margin-left: -.5rem;
+	padding: 1rem 1.5rem 1rem 1rem;
+	font-weight: 700;
+	font-size: 2rem;
+	color: var(--bg-dark);
+	text-align: center;
+	letter-spacing: -1px;
+	line-height: 1;
+	border-radius: 0 4rem 4rem 0;
+	border-left: .5rem solid var(--text-light);
+	background-color: var(--yellow);
+}
+
+.milestone__title {
+	margin-bottom: 0;
+	font-weight: 700;
+	color: var(--text-light);
+}
+
+@media only screen and (max-width: 767.98px) {
+	.milestone__title {
+		margin-top: .5rem;
 	}
 }
 
 @media only screen and (min-width: 768px) {
-	.experience {
-		grid-template-columns: 3fr 2fr;
-		grid-gap: 4rem;
+	.milestone__title {
+		margin-top: .25rem;
 	}
 }
 
-.experience__skillset {
-	background-color: var(--bg-dark);
-}
-
-@media only screen and (max-width: 991px) {
-	.experience__skillset {
-		padding: 2rem;
-	}
-}
-
-@media only screen and (min-width: 992px) {
-	.experience__skillset {
-		padding: 2rem 3rem;
-	}
-}
-
-.experience__list {
+.milestone__text {
 	margin-bottom: 0;
 }
 
-@media only screen and (min-width: 576px) and (max-width: 767px) {
-	.experience__list {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		grid-gap: 0 2rem;
+@media only screen and (max-width: 767.98px) {
+	.milestone__text {
+		grid-column: 1 / -1;
+		margin-top: 1rem;
+		margin-left: 1.5rem;
 	}
 }

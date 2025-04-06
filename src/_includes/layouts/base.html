@@ -1,17 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ locale }}">
 	<head>
 		<meta charset="utf-8">
-		<title>{% if title %}{{ title }} | {% endif %}Your Website &ndash; Simplified & Supercharged.</title>
+		<title>{% if title %}{{ title }} | {% endif %}{{ site[locale].name }}</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		<meta name="description" content="{{ description | default: 'Everyone deserves a website that is fast, simple, and effortless to manage.' }}">
+		<meta name="description" content="{{ description }}">
 
 		<!-- Styles -->
 		<link rel="stylesheet" href="/assets/css/style.css">
 		{%- if css %}
 		<link rel="stylesheet" href="/assets/css/{{ css }}.css">
 		{%- endif %}
+
+		<!-- FontAwesome -->
+		<link rel="stylesheet" href="/assets/css/fontawesome.min.css" media="print" onload="this.media='all'">
 
 		<!-- Favicons -->
 		<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
@@ -29,23 +31,32 @@
 		<meta name="twitter:site" content="@rszabodesign">
 		<meta name="twitter:creator" content="@rszabodesign">
 		<meta property="og:type" content="website">
-		<meta property="og:url" content="https://rolandszabo.design/">
-		<meta property="og:title" content="Your Website - Simplified & Supercharged. | Roland Szabó Design">
-		<meta property="og:description" content="{{ description | default: 'Everyone deserves a website that is fast, simple, and effortless to manage.' }}">
+		<meta property="og:url" content="https://rolandszabo.design/{{ locale }}/">
+		<meta property="og:title" content="{{ site[locale].title }}">
+		<meta property="og:description" content="{{ description }}">
 		<meta property="og:image" content="/assets/images/og-image.webp">
 
-		<!-- FontAwesome -->
-		<link rel="stylesheet" href="/assets/css/fontawesome.min.css" media="print" onload="this.media='all'">
-		<link rel="stylesheet" href="/assets/css/fontawesome-solid.min.css" media="print" onload="this.media='all'">
-		<link rel="stylesheet" href="/assets/css/fontawesome-brands.min.css" media="print" onload="this.media='all'">
-
-		<!-- Google Analytics -->
-		<script defer src="https://www.googletagmanager.com/gtag/js?id=G-7EM7TYLQD9"></script>
-		<script defer src="/assets/js/analytics.js"></script>
+		<!-- Ahrefs Analytics -->
+		<script src="https://analytics.ahrefs.com/analytics.js" data-key="OW6RmdNyXwTta0y/eQSiCw" async></script>
 	</head>
 	<body>
 		{% include "partials/header.html" %}
 		{{ content }}
 		{% include "partials/footer.html" %}
+
+		<script>
+			function toggleMainMenu() {
+				var button = document.getElementById("menu-toggle");
+				var menu = document.getElementById("main-menu");
+
+				if (menu.style.display === "block") {
+					menu.style.display = "none";
+					button.innerHTML = "☰";
+				} else {
+					menu.style.display = "block";
+					button.innerHTML = "✕";
+				}
+			}
+		</script>
 	</body>
 </html>
