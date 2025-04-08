@@ -168,6 +168,10 @@ img {
 	padding-top: 0;
 }
 
+.section--bottom {
+	padding-bottom: 0;
+}
+
 .section__title {
 	margin-top: 0;
 }
@@ -185,7 +189,7 @@ img {
 }
 
 .cta {
-	margin-top: 2rem;
+	margin-top: 4rem;
 	padding: 2rem;
 	text-align: center;
 	background-color: var(--bg-dark);
@@ -720,7 +724,7 @@ tbody th {
 @media only screen and (min-width: 992px) {
 	.nav--lang {
 		margin-left: 1rem;
-		padding-left: 2rem;
+		padding-left: 1.5rem;
 		border-left: 1px solid var(--bg-light);
 	}
 }
@@ -751,7 +755,7 @@ tbody th {
 
 @media only screen and (min-width: 576px) and (max-width: 991.98px) {
 	.nav__list {
-		margin-left: -2rem;
+		margin-left: -1.5rem;
 	}
 }
 
@@ -774,7 +778,7 @@ tbody th {
 
 @media only screen and (min-width: 576px) {
 	.nav__link {
-		padding: 2rem;
+		padding: 2rem 1.5rem;
 	}
 }
 

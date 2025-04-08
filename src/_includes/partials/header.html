@@ -12,6 +12,7 @@
 				{%- assign servicesPath = '/' | append: locale | append: '/' | append: site[locale].slugServices | append: '/' -%}
 				{%- assign portfolioPath = '/' | append: locale | append: '/' | append: site[locale].slugPortfolio | append: '/' -%}
 				{%- assign hirePath = '/' | append: locale | append: '/' | append: site[locale].slugHireMe | append: '/' -%}
+				{%- assign blogPath = '/' | append: locale | append: '/' | append: site[locale].slugBlog | append: '/' -%}
 
 				<ul class="nav__list">
 					<li class="nav__item">
@@ -32,6 +33,11 @@
 					<li class="nav__item">
 						<a class="nav__link{% if page.url == hirePath %} nav__link--active{% endif %}" href="{{ hirePath }}">
 							{{ site[locale].navHireMe }}
+						</a>
+					</li>
+					<li class="nav__item">
+						<a class="nav__link{% if page.url == blogPath %} nav__link--active{% endif %}" href="{{ blogPath }}">
+							{{ site[locale].navBlog }}
 						</a>
 					</li>
 				</ul>

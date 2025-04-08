@@ -16,11 +16,13 @@ module.exports = {
 		navServices: "Services",
 		navPortfolio: "Portfolio",
 		navHireMe: "Hire Me",
+		navBlog: "Blog",
 
 		slugAbout: "about",
 		slugServices: "services",
 		slugPortfolio: "portfolio",
 		slugHireMe: "hire-me",
+		slugBlog: "blog",
 
 		lightboxNext: "Next Photo",
 		lightboxPrevious: "Previous Photo",
@@ -43,11 +45,13 @@ module.exports = {
 		navServices: "Szolgáltatások",
 		navPortfolio: "Munkáim",
 		navHireMe: "Kapcsolat",
+		navBlog: "Blog",
 
 		slugAbout: "rolam",
 		slugServices: "szolgaltatasok",
 		slugPortfolio: "munkaim",
 		slugHireMe: "kapcsolat",
+		slugBlog: "blog",
 
 		lightboxNext: "Következő Kép",
 		lightboxPrevious: "Előző Kép",

@@ -1,0 +1,19 @@
+.post-header {
+	text-align: center;
+}
+
+.post-header__link {
+	display: block;
+	margin-bottom: 2rem;
+	padding-bottom: 1rem;
+	color: var(--text-dark);
+}
+
+.post-header__title {
+	margin-bottom: 2rem;
+	line-height: 1.25;
+}
+
+.post-header__date {
+	color: var(--text-dark);
+}
