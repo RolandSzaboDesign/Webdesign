@@ -1,38 +1,42 @@
-.extras {
+.services {
 	display: grid;
 	grid-gap: 2rem;
 }
 
 @media only screen and (min-width: 768px) {
-	.extras {
+	.services {
 		grid-template-columns: repeat(2, 1fr);
 	}
 }
 
-.extra {
+.service {
 	margin: 0;
 	padding: 2rem;
-	border-top: .5rem solid var(--yellow);
+	border-top: .5rem solid var(--pink);
 	background-color: var(--bg-dark);
 }
 
+.service--extra {
+	border-top-color: var(--yellow);
+}
+
 @media only screen and (max-width: 767.98px) {
-	.extra {
+	.service {
 		padding: 2rem;
 	}
 }
 
 @media only screen and (min-width: 768px) {
-	.extra {
+	.service {
 		padding: 4rem;
 	}
 }
 
-.extra__title {
+.service__title {
 	margin-top: 0;
 }
 
-.extra__recommended {
+.service__recommended {
 	margin-bottom: 0;
 }
 

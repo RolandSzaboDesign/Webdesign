@@ -12,6 +12,28 @@ css: services
 			<p class="h3">{{ hero.tagline }} <i class="fas fa-check text-success"></i></p>
 			<p>{{ hero.text_1 }}</p>
 			<p>{{ hero.text_2 }}</p>
+			<ul class="services">
+				{% for item in services.items %}
+					<li class="service">
+						<h3 class="service__title"><i class="service__icon fas {{ item.icon }} text-yellow icon-left"></i> {{ item.title }}</h3>
+						<p class="service__text">{{ item.text }}</p>
+						<p class="service__recommended"><strong>{{ services.recommended_for }}:</strong> <em>{{ item.recommended }}</em></p>
+					</li>
+				{% endfor %}
+			</ul>
+			<div class="services">
+				<article class="service">
+					<h2>Weboldal</h2>
+					<p>A tökéletes választás, ha egy profi kivitelezőre van szükséged, aki az elképzeléseidet egy működő, gyors és gyönyörű weboldallá formálja.</p>
+					<p><strong>Tartalmazza:</strong></p>
+					<ul>
+						<li>WordPress alapú, reszponzív, gyors weboldal</li>
+						<li>Teljesen egyedi design a céljaid szerint</li>
+						<li>Keresőbarát, technikailag rendben lévő oldal</li>
+						<li>Oktatás és támogatás az átadás után is</li>
+					</ul>
+				</article>
+			</div>
 			<a class="btn btn--primary mt-2" href="#start">{{ hero.button }}</a>
 		</div>
 	</header>
@@ -68,14 +90,14 @@ css: services
 
 	<section class="section">
 		<div class="container">
-			<h2 class="section__title">{{ extras.title }}</h2>
-			<p>{{ extras.text }}</p>
-			<ul class="extras">
+			<h2 class="section__title">{{ services.title }}</h2>
+			<p>{{ services.text }}</p>
+			<ul class="services">
 				{% for item in extras.items %}
-					<li class="extra">
-						<h3 class="extra__title"><i class="extra__icon fas {{ item.icon }} text-yellow icon-left"></i> {{ item.title }}</h3>
-						<p class="extra__text">{{ item.text }}</p>
-						<p class="extra__recommended"><strong>{{ extras.recommended_for }}:</strong> <em>{{ item.recommended }}</em></p>
+					<li class="service service--extra">
+						<h3 class="service__title"><i class="service__icon fas {{ item.icon }} text-yellow icon-left"></i> {{ item.title }}</h3>
+						<p class="service__text">{{ item.text }}</p>
+						<p class="service__recommended"><strong>{{ services.recommended_for }}:</strong> <em>{{ item.recommended }}</em></p>
 					</li>
 				{% endfor %}
 			</ul>
