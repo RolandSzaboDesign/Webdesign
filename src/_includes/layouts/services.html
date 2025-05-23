@@ -29,7 +29,10 @@ css: services
 						<p><strong>{{ services.contains }}:</strong></p>
 						<ul class="list">
 							{% for listItem in item.contains %}
-								<li><i class="fas fa-check-circle text-success icon-left"></i> {{ listItem }}</li>
+								<li>
+									<i class="fas fa-check-circle text-success icon-left"></i>
+									{{ listItem }}
+								</li>
 							{% endfor %}
 						</ul>
 					</li>
@@ -82,7 +85,7 @@ css: services
 	<section class="section">
 		<div class="container">
 			<h2 class="section__title">{{ base.title }}</h2>
-			<p>{{ base.text_1 }}</p>
+			<p>{{ base.text }}</p>
 			<article class="step">
 				<h3 class="step__title">
 					<span class="step__number">1.</span>
@@ -125,7 +128,6 @@ css: services
 					</ul>
 				</div>
 			</article>
-			<p>{{ base.text_2 }}</p>
 		</div>
 
 	<section class="section cta">
