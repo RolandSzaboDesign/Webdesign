@@ -148,6 +148,10 @@ img {
 	padding-right: 2rem;
 }
 
+.container--thin {
+	max-width: 90rem;
+}
+
 @media only screen and (max-width: 767.98px) {
 	.section,
 	.section.cta {
