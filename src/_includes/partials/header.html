@@ -1,67 +1,31 @@
-<header class="header">
-	<div class="container header__container">
-		<a class="logo" href="/{{ locale }}/">
-			<span class="logo__rsd">RSD</span>
-			<span class="logo__title">Roland Szabó Design</span>
+<header class="site-header" data-site-header>
+	<div class="container site-header__container">
+		<a class="brand" href="/{{ locale }}/" aria-label="{{ site[locale].name }} – {{ site[locale].brandDescription }}">
+			<span class="brand__name">Roland Szabó <span>Design</span></span>
+			<span class="brand__description">{{ site[locale].brandDescription }}</span>
 		</a>
-		<div id="main-menu" class="menu">
-			<nav class="nav" aria-labelledby="aria-nav-title">
-				<h2 class="nav__title h3" id="aria-nav-title">{{ site[locale].navTitle }}</h2>
 
-				{%- assign aboutPath = '/' | append: locale | append: '/' | append: site[locale].slugAbout | append: '/' -%}
-				{%- assign servicesPath = '/' | append: locale | append: '/' | append: site[locale].slugServices | append: '/' -%}
-				{%- assign portfolioPath = '/' | append: locale | append: '/' | append: site[locale].slugPortfolio | append: '/' -%}
-				{%- assign hirePath = '/' | append: locale | append: '/' | append: site[locale].slugHireMe | append: '/' -%}
-				{%- assign blogPath = '/' | append: locale | append: '/' | append: site[locale].slugBlog | append: '/' -%}
+		<button class="menu-toggle" type="button" aria-label="{{ site[locale].menuOpen }}" aria-expanded="false" aria-controls="site-navigation" data-menu-toggle data-menu-open="{{ site[locale].menuOpen }}" data-menu-close="{{ site[locale].menuClose }}">
+			<span class="menu-toggle__label" data-menu-label>{{ site[locale].menuOpen }}</span>
+			<span class="menu-toggle__icon" aria-hidden="true"><span></span><span></span></span>
+		</button>
 
-				<ul class="nav__list">
-					<li class="nav__item">
-						<a class="nav__link{% if page.url == aboutPath %} nav__link--active{% endif %}" href="{{ aboutPath }}">
-							{{ site[locale].navAbout }}
-						</a>
-					</li>
-					<li class="nav__item">
-						<a class="nav__link{% if page.url == servicesPath %} nav__link--active{% endif %}" href="{{ servicesPath }}">
-							{{ site[locale].navServices }}
-						</a>
-					</li>
-					<li class="nav__item">
-						<a class="nav__link{% if page.url == portfolioPath %} nav__link--active{% endif %}" href="{{ portfolioPath }}">
-							{{ site[locale].navPortfolio }}
-						</a>
-					</li>
-					<li class="nav__item">
-						<a class="nav__link{% if page.url == hirePath %} nav__link--active{% endif %}" href="{{ hirePath }}">
-							{{ site[locale].navHireMe }}
-						</a>
-					</li>
-					<li class="nav__item">
-						<a class="nav__link{% if page.url == blogPath %} nav__link--active{% endif %}" href="{{ blogPath }}">
-							{{ site[locale].navBlog }}
-						</a>
-					</li>
+		<div class="site-header__menu" id="site-navigation" data-menu>
+			<nav class="primary-nav" aria-label="{{ site[locale].navTitle }}">
+				<ul class="primary-nav__list">
+					<li><a class="primary-nav__link" href="{{ site[locale].nav.websiteDesign.url }}"{% if page.url == site[locale].nav.websiteDesign.url %} aria-current="page"{% endif %}>{{ site[locale].nav.websiteDesign.label }}</a></li>
+					<li><a class="primary-nav__link" href="{{ site[locale].nav.process.url }}"{% if page.url == site[locale].nav.process.url %} aria-current="page"{% endif %}>{{ site[locale].nav.process.label }}</a></li>
+					<li><a class="primary-nav__link" href="{{ site[locale].nav.caseStudy.url }}"{% if page.url == site[locale].nav.caseStudy.url %} aria-current="page"{% endif %}>{{ site[locale].nav.caseStudy.label }}</a></li>
 				</ul>
 			</nav>
-			<nav class="nav nav--lang" aria-labelledby="aria-lang-title">
-				<h2 class="nav__title h3" id="aria-lang-title">{{ site[locale].langTitle }}</h2>
-				<ul class="nav__list">
-					{%- for lang in site.languages -%}
-						{%- assign translated = "/" | append: lang.code | append: "/" -%}
-						{%- for item in collections.all -%}
-							{%- if item.data.translation == translation and item.data.locale == lang.code -%}
-								{%- assign translated = item.url -%}
-							{%- endif -%}
-						{%- endfor %}
-						<li class="nav__item">
-							<a class="nav__link nav__link--lang{% if lang.code == locale %} nav__link--active{% endif %}" href="{{ translated }}" title="{{ lang.label }}">
-								<span class="lang-label lang-label--mobile">{{ lang.code }}</span>
-								<span class="lang-label lang-label--desktop">{{ lang.label }}</span>
-							</a>
-						</li>
-					{%- endfor %}
-				</ul>
-			</nav>
+
+			<div class="site-header__actions">
+				<a class="button button--small" href="{{ site[locale].nav.contact.url }}"{% if page.url == site[locale].nav.contact.url %} aria-current="page"{% endif %}>{{ site[locale].nav.contact.label }}</a>
+
+				{% if alternateUrl != "" %}
+					<a class="language-switch" href="{{ alternateUrl }}" hreflang="{{ alternateLocale }}" lang="{{ alternateLocale }}" rel="alternate" aria-label="{{ site[locale].switchLanguageLabel }}">{{ site[alternateLocale].languageShort }}</a>
+				{% endif %}
+			</div>
 		</div>
-		<a id="menu-toggle" class="menu-toggle" href="#" title="{{ site[locale].toggleNavigation }}" onclick="toggleMainMenu()">☰</a>
 	</div>
 </header>

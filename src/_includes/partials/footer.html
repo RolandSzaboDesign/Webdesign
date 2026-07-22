@@ -1,6 +1,10 @@
-<footer class="footer">
-	<div class="container footer__container">
-		<p class="copyright">&copy; 2025 &ndash; Roland Szabó Design, {{ site[locale].copyright }}</p>
-		<p class="smallprint">{{ site[locale].footerText }} {{ site[locale].footerSsg }} <a class="footer__link" href="https://www.11ty.dev/" target="_blank" rel="noopener noreferrer">Eleventy</a>, {{ site[locale].footerCdn }} <a class="footer__link" href="https://www.netlify.com/" target="_blank" rel="noopener noreferrer">Netlify</a>.</p>
+<footer class="site-footer">
+	<div class="container site-footer__container">
+		<div>
+			<p class="site-footer__brand">{{ site.name }}</p>
+			<p class="site-footer__text">{{ site[locale].footerText }}</p>
+		</div>
+
+		<p class="site-footer__meta">&copy; 2006–{{ site.year }} Roland Szabó. {{ site[locale].copyright }}</p>
 	</div>
 </footer>

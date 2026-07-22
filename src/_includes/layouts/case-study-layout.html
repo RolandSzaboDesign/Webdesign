@@ -1,0 +1,250 @@
+---
+layout: layouts/base.html
+---
+
+<main id="main-content" class="photo-case-study-page">
+	<header class="photo-case-study-hero">
+		<div class="container">
+			<div class="photo-case-study-hero__content">
+				<p class="section-label">{{ hero.label }}</p>
+				<h1 class="photo-case-study-hero__title">{{ hero.title }}</h1>
+				<p class="photo-case-study-hero__lead">{{ hero.lead }}</p>
+			</div>
+
+			<dl class="photo-case-study-meta">
+				{% for item in hero.meta %}
+					<div class="photo-case-study-meta__item">
+						<dt>{{ item.label }}</dt>
+						<dd>{{ item.value }}</dd>
+					</div>
+				{% endfor %}
+			</dl>
+
+			<figure class="photo-case-study-hero__visual">
+				<img src="{{ hero.image.src }}" alt="{{ hero.image.alt }}" width="{{ hero.image.width }}" height="{{ hero.image.height }}" loading="eager" fetchpriority="high">
+			</figure>
+		</div>
+	</header>
+
+	<section class="photo-case-study-challenge">
+		<div class="container">
+			<div class="photo-case-study-split">
+				<header class="section-header">
+					<p class="section-label">{{ challenge.label }}</p>
+					<h2 class="section-header__title">{{ challenge.title }}</h2>
+				</header>
+
+				<div class="photo-case-study-copy">
+					{% for paragraph in challenge.paragraphs %}
+						<p>{{ paragraph }}</p>
+					{% endfor %}
+				</div>
+			</div>
+
+			<div class="before-after">
+				<figure class="before-after__item">
+					<figcaption>{{ challenge.comparison.before.label }}</figcaption>
+					<img src="{{ challenge.comparison.before.src }}" alt="{{ challenge.comparison.before.alt }}" width="{{ challenge.comparison.before.width }}" height="{{ challenge.comparison.before.height }}" loading="lazy">
+				</figure>
+
+				<figure class="before-after__item">
+					<figcaption>{{ challenge.comparison.after.label }}</figcaption>
+					<img src="{{ challenge.comparison.after.src }}" alt="{{ challenge.comparison.after.alt }}" width="{{ challenge.comparison.after.width }}" height="{{ challenge.comparison.after.height }}" loading="lazy">
+				</figure>
+			</div>
+		</div>
+	</section>
+
+	<section class="photo-case-study-system">
+		<div class="container">
+			<header class="section-header">
+				<p class="section-label">{{ system.label }}</p>
+				<h2 class="section-header__title">{{ system.title }}</h2>
+				<p class="section-header__lead">{{ system.lead }}</p>
+			</header>
+
+			<div class="case-system-grid">
+				{% for item in system.items %}
+					<article class="case-system-item">
+						<p class="case-system-item__value">{{ item.value }}</p>
+						<h3 class="case-system-item__title">{{ item.title }}</h3>
+						<p>{{ item.text }}</p>
+					</article>
+				{% endfor %}
+			</div>
+
+			<div class="case-hubs">
+				<div class="case-hubs__header">
+					<h3>{{ system.hubs.title }}</h3>
+					<p>{{ system.hubs.text }}</p>
+				</div>
+
+				<div class="case-hubs__grid">
+					{% for item in system.hubs.items %}
+						<figure class="case-hub">
+							<img src="{{ item.src }}" alt="{{ item.alt }}" width="{{ item.width }}" height="{{ item.height }}" loading="lazy">
+							<figcaption>{{ item.label }}</figcaption>
+						</figure>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="photo-case-study-ai">
+		<div class="container">
+			<header class="section-header">
+				<p class="section-label">{{ ai.label }}</p>
+				<h2 class="section-header__title">{{ ai.title }}</h2>
+				<p class="section-header__lead">{{ ai.lead }}</p>
+			</header>
+
+			<div class="case-speed-comparison">
+				<div class="case-speed-comparison__item">
+					<strong>{{ ai.speed.before.value }}</strong>
+					<span>{{ ai.speed.before.label }}</span>
+				</div>
+
+				<span class="case-speed-comparison__arrow" aria-hidden="true">→</span>
+
+				<div class="case-speed-comparison__item case-speed-comparison__item--after">
+					<strong>{{ ai.speed.after.value }}</strong>
+					<span>{{ ai.speed.after.label }}</span>
+				</div>
+			</div>
+
+			<article class="case-ai-principle">
+				<div class="case-ai-principle__heading">
+					<p class="section-label">{{ ai.principle.label }}</p>
+					<h3 class="case-ai-principle__title">{{ ai.principle.title }}</h3>
+				</div>
+
+				<p class="case-ai-principle__text">{{ ai.principle.text }}</p>
+			</article>
+
+			{% include 'partials/comparison-columns.html', left: ai.assistance, right: ai.control, modifier: 'comparison-columns--on-soft' %}
+
+			<p class="case-ai-footer">{{ ai.footer }}</p>
+		</div>
+	</section>
+
+	<section class="photo-case-study-showcase">
+		<div class="container">
+			<header class="section-header">
+				<p class="section-label">{{ showcase.label }}</p>
+				<h2 class="section-header__title">{{ showcase.title }}</h2>
+				<p class="section-header__lead">{{ showcase.lead }}</p>
+			</header>
+
+			<div class="case-showcase-desktop">
+				{% for item in showcase.desktop %}
+					<figure class="case-showcase-page">
+						<figcaption>
+							<span>{{ item.label }}</span>
+							<strong>{{ item.title }}</strong>
+						</figcaption>
+
+						<a href="{{ item.src }}" target="_blank" rel="noopener noreferrer">
+							<img src="{{ item.src }}" alt="{{ item.alt }}" width="{{ item.width }}" height="{{ item.height }}" loading="lazy">
+							<span class="case-showcase-page__action">Teljes kép megnyitása ↗</span>
+							<span class="visually-hidden">{{ site[locale].opensInNewTab }}</span>
+						</a>
+					</figure>
+				{% endfor %}
+			</div>
+
+			<div class="case-mobile-showcase">
+				<div class="case-mobile-showcase__copy">
+					<h3>{{ showcase.mobile.title }}</h3>
+					<p>{{ showcase.mobile.text }}</p>
+				</div>
+
+				<div class="case-mobile-showcase__screens">
+					{% for item in showcase.mobile.items %}
+						<figure>
+							<img src="{{ item.src }}" alt="{{ item.alt }}" width="{{ item.width }}" height="{{ item.height }}" loading="lazy">
+							<figcaption>{{ item.label }}</figcaption>
+						</figure>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="photo-case-study-results">
+		<div class="container">
+			<header class="section-header">
+				<p class="section-label">{{ results.label }}</p>
+				<h2 class="section-header__title">{{ results.title }}</h2>
+				<p class="section-header__lead">{{ results.lead }}</p>
+			</header>
+
+			<div class="case-launch-result">
+				<p class="case-launch-result__value">{{ results.highlight.value }}</p>
+
+				<div class="case-launch-result__content">
+					<h3>{{ results.highlight.label }}</h3>
+					<p>{{ results.highlight.text }}</p>
+				</div>
+			</div>
+
+			<div class="case-results-grid">
+				{% for item in results.items %}
+					<article class="case-result-item">
+						<h3>{{ item.title }}</h3>
+						<p>{{ item.text }}</p>
+					</article>
+				{% endfor %}
+			</div>
+
+			<div class="case-audit-scores">
+				{% for item in results.scores %}
+					<div class="case-audit-score">
+						<p class="case-audit-score__value">{{ item.value }}</p>
+						<p class="case-audit-score__label">{{ item.label }}</p>
+					</div>
+				{% endfor %}
+			</div>
+
+			<div class="case-evidence">
+				<figure class="case-evidence__ahrefs">
+					<p class="section-label">{{ results.ahrefs.label }}</p>
+					<img src="{{ results.ahrefs.src }}" alt="{{ results.ahrefs.alt }}" width="{{ results.ahrefs.width }}" height="{{ results.ahrefs.height }}" loading="lazy">
+					<figcaption>{{ results.ahrefs.caption }}</figcaption>
+				</figure>
+
+				<figure class="case-evidence__lighthouse">
+					<p class="section-label">{{ results.lighthouse.label }}</p>
+					<img src="{{ results.lighthouse.src }}" alt="{{ results.lighthouse.alt }}" width="{{ results.lighthouse.width }}" height="{{ results.lighthouse.height }}" loading="lazy">
+					<figcaption>{{ results.lighthouse.caption }}</figcaption>
+				</figure>
+			</div>
+		</div>
+	</section>
+
+	<section class="photo-case-study-takeaway">
+		<div class="container">
+			<div class="case-takeaway-panel">
+				<div class="case-takeaway-panel__heading">
+					<p class="section-label">{{ takeaway.label }}</p>
+					<h2>{{ takeaway.title }}</h2>
+				</div>
+
+				<div class="case-takeaway-panel__content">
+					<div class="case-takeaway-panel__copy">
+						{% for paragraph in takeaway.paragraphs %}
+							<p>{{ paragraph }}</p>
+						{% endfor %}
+					</div>
+
+					<div class="button-group">
+						<a class="button" href="{{ takeaway.primaryCta.url }}">{{ takeaway.primaryCta.label }}</a>
+						<a class="text-link" href="#{{ site[locale].contactAnchor }}">{{ takeaway.secondaryCta.label }} <span aria-hidden="true">→</span></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	{% include 'partials/contact-section.html' %}
+</main>

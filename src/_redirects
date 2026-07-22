@@ -1,20 +1,8 @@
-/                                     /hu/           301
+/                                      /hu/                                             301
 
-http://rolandszabo.design/*           /:splat        301!
-https://www.rolandszabo.design/*      /:splat        301!
+http://rolandszabo.design/*            https://rolandszabo.design/:splat                301!
+https://www.rolandszabo.design/*       https://rolandszabo.design/:splat                301!
 
-/bookmarks                            /              301
-/process                              /              301
-/process/                             /              301
-/uses                                 /              301
-/uses/                                /              301
-
-/about                                /about/        301
-
-/projects                             /portfolio/    301
-/projects/*                           /portfolio/    301
-
-/contact                              /hire-me/      301
-/contact/                             /hire-me/      301
-/hire                                 /hire-me/      301
-/hire/                                /hire-me/      301
+/hu/szolgaltatasok/                    /hu/weboldalkeszites/                            301
+/hu/rolam/                             /hu/igy-dolgozom/                                301
+/hu/munkaim/                           /hu/esettanulmany/                               301

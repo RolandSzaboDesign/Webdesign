@@ -1,0 +1,21 @@
+<div class="comparison-columns{% if modifier %} {{ modifier }}{% endif %}">
+	<article class="comparison-column">
+		<h3 class="comparison-column__title">{{ left.title }}</h3>
+
+		<ul class="comparison-list">
+			{% for item in left.items %}
+				<li>{{ item }}</li>
+			{% endfor %}
+		</ul>
+	</article>
+
+	<article class="comparison-column comparison-column--emphasis">
+		<h3 class="comparison-column__title">{{ right.title }}</h3>
+
+		<ul class="comparison-list comparison-list--emphasis">
+			{% for item in right.items %}
+				<li>{{ item }}</li>
+			{% endfor %}
+		</ul>
+	</article>
+</div>

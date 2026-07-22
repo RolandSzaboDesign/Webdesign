@@ -1,0 +1,40 @@
+---
+layout: layouts/base.html
+---
+
+<!-- Gratulálok, megtaláltad a weboldal egyik legkevésbé látogatott oldalát. -->
+
+<main id="main-content" class="not-found-page">
+	<section class="not-found-section">
+		<div class="container">
+			<div class="not-found-section__content">
+				<p class="section-label">{{ notFound.label }}</p>
+
+				<div class="not-found-visual" aria-hidden="true">
+					<p class="not-found-visual__code">{{ notFound.code }}</p>
+
+					<svg class="not-found-visual__icon" viewBox="0 0 180 140" role="img">
+						<rect x="12" y="22" width="156" height="104" rx="12"></rect>
+						<path d="M12 49H168"></path>
+						<circle cx="29" cy="36" r="3"></circle>
+						<circle cx="41" cy="36" r="3"></circle>
+						<circle cx="53" cy="36" r="3"></circle>
+						<path d="M74 22L91 50L76 70L105 91L88 126"></path>
+					</svg>
+				</div>
+
+				<h1 class="not-found-section__title">{{ notFound.title }}</h1>
+				<p class="not-found-section__lead">{{ notFound.lead }}</p>
+
+				{% if notFound.easterEgg %}
+					<p class="not-found-section__easter-egg">{{ notFound.easterEgg }}</p>
+				{% endif %}
+
+				<div class="button-group not-found-section__actions">
+					<a class="button" href="{{ notFound.primaryCta.url }}">{{ notFound.primaryCta.label }}</a>
+					<a class="text-link" href="{{ notFound.secondaryCta.url }}">{{ notFound.secondaryCta.label }} <span aria-hidden="true">→</span></a>
+				</div>
+			</div>
+		</div>
+	</section>
+</main>

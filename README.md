@@ -1,6 +1,21 @@
-# Portfolio
-The Personal Website of Roland Szabó, Senior Web Designer.
-Hand-crafted in HTML & CSS. Generated with Eleventy. Served by Netlify.
+# Roland Szabó Design v4
 
-## Deploy Status
-[![Netlify Status](https://api.netlify.com/api/v1/badges/e665526f-5362-4c3d-a8b5-c5ce34ba8112/deploy-status)](https://app.netlify.com/sites/rolandszabo/deploys)
+A rolandszabo.design teljes újratervezése Eleventy 3.1.6 alapon.
+
+## Első fejlesztési kör
+
+- új Eleventy-struktúra
+- új base layout, fejléc és footer
+- új dark, emberi és tartalomközpontú designrendszer
+- működő magyar főoldali hero
+- reszponzív mobilmenü
+- scaffold oldalak a végleges URL-ekhez
+- sitemap, robots és alap redirectek
+
+## Futtatás
+
+```bash
+npm install
+npm run build
+npm run serve
+```

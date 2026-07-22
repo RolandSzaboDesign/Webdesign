@@ -1,59 +1,99 @@
-<!DOCTYPE html>
-<html lang="{{ locale }}">
+{%- assign translationHuUrl = "" -%}
+{%- assign translationEnUrl = "" -%}
+
+{%- if translation -%}
+	{%- for item in collections.all -%}
+		{%- if item.data.translation == translation -%}
+			{%- if item.data.locale == "hu" -%}
+				{%- assign translationHuUrl = item.url -%}
+			{%- elsif item.data.locale == "en" -%}
+				{%- assign translationEnUrl = item.url -%}
+			{%- endif -%}
+		{%- endif -%}
+	{%- endfor -%}
+{%- endif -%}
+
+{%- assign alternateLocale = "" -%}
+{%- assign alternateUrl = "" -%}
+
+{%- if locale == "hu" and translationEnUrl != "" -%}
+	{%- assign alternateLocale = "en" -%}
+	{%- assign alternateUrl = translationEnUrl -%}
+{%- elsif locale == "en" and translationHuUrl != "" -%}
+	{%- assign alternateLocale = "hu" -%}
+	{%- assign alternateUrl = translationHuUrl -%}
+{%- endif -%}
+<!doctype html>
+
+<!doctype html>
+<html lang="{{ locale }}" class="no-js">
 	<head>
 		<meta charset="utf-8">
-		<title>{% if title %}{{ title }} | {% endif %}{{ site[locale].name }}</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script>document.documentElement.classList.replace("no-js", "js");</script>
+
+		{% if socialImage %}
+			{% assign metaImageSrc = socialImage.src %}
+			{% assign metaImageAlt = socialImage.alt %}
+		{% else %}
+			{% assign metaImageSrc = site[locale].socialImage.src %}
+			{% assign metaImageAlt = site[locale].socialImage.alt %}
+		{% endif %}
+
+		<title>{% if title %}{{ title }} | {% endif %}{{ site.name }}</title>
 		<meta name="description" content="{{ description }}">
+		<meta name="author" content="Roland Szabó">
+		{% if robots %}
+			<meta name="robots" content="{{ robots }}">
+		{% else %}
+			<meta name="robots" content="index,follow,max-image-preview:large">
+		{% endif %}
+		<meta name="theme-color" content="#11110f">
+		<link rel="canonical" href="{{ site.url }}{{ page.url }}">
 
-		<!-- Styles -->
-		<link rel="stylesheet" href="/assets/css/style.css">
-		{%- if css %}
-		<link rel="stylesheet" href="/assets/css/{{ css }}.css">
-		{%- endif %}
+		{% if sitemap != false and translationHuUrl != "" and translationEnUrl != "" %}
+			<link rel="alternate" hreflang="hu" href="{{ site.url }}{{ translationHuUrl }}">
+			<link rel="alternate" hreflang="en" href="{{ site.url }}{{ translationEnUrl }}">
+			<link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ translationHuUrl }}">
+		{% endif %}
 
-		<!-- FontAwesome -->
-		<link rel="stylesheet" href="/assets/css/fontawesome.min.css" media="print" onload="this.media='all'">
+		<meta property="og:type" content="website">
+		{% if alternateUrl != "" %}
+			<meta property="og:locale:alternate" content="{{ site[alternateLocale].locale }}">
+		{% endif %}
+		<meta property="og:site_name" content="{{ site.name }}">
+		<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+		<meta property="og:title" content="{% if title %}{{ title }} | {% endif %}{{ site.name }}">
+		<meta property="og:description" content="{{ description }}">
+		<meta property="og:image" content="{{ site.url }}{{ metaImageSrc }}">
+		<meta property="og:image:alt" content="{{ metaImageAlt }}">
 
-		<!-- Favicons -->
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:title" content="{% if title %}{{ title }} | {% endif %}{{ site.name }}">
+		<meta name="twitter:description" content="{{ description }}">
+		<meta name="twitter:image" content="{{ site.url }}{{ metaImageSrc }}">
+		<meta name="twitter:image:alt" content="{{ metaImageAlt }}">
+
 		<link rel="icon" type="image/png" href="/assets/favicons/favicon-96x96.png" sizes="96x96">
 		<link rel="icon" type="image/svg+xml" href="/assets/favicons/favicon.svg">
-		<link rel="shortcut icon" href="/assets/favicons/favicon.ico">
+		<link rel="shortcut icon" href="/favicon.ico">
 		<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
 		<link rel="manifest" href="/assets/favicons/site.webmanifest">
-		<meta name="apple-mobile-web-app-title" content="Roland Szabó Design">
 
-		<!-- OpenGraph -->
-		<meta name="twitter:card" content="summary">
-		<meta name="twitter:site" content="@rszabodesign">
-		<meta name="twitter:creator" content="@rszabodesign">
-		<meta property="og:type" content="website">
-		<meta property="og:url" content="https://rolandszabo.design/{{ locale }}/">
-		<meta property="og:title" content="{{ site[locale].title }}">
-		<meta property="og:description" content="{{ description }}">
-		<meta property="og:image" content="/assets/images/og-image.webp">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400..800&display=swap">
+		<link rel="stylesheet" href="/assets/css/style.css">
+		<script src="/assets/js/main.js" defer></script>
 
-		<!-- Ahrefs Analytics -->
-		<script src="https://analytics.ahrefs.com/analytics.js" data-key="OW6RmdNyXwTta0y/eQSiCw" async></script>
+		{% if structuredData == "home" %}
+			{% include "partials/structured-data.html" %}
+		{% endif %}
 	</head>
 	<body>
+		<a class="skip-link" href="#main-content">{{ site[locale].skipLink }}</a>
 		{% include "partials/header.html" %}
 		{{ content }}
 		{% include "partials/footer.html" %}
-
-		<script>
-			function toggleMainMenu() {
-				var button = document.getElementById("menu-toggle");
-				var menu = document.getElementById("main-menu");
-
-				if (menu.style.display === "block") {
-					menu.style.display = "none";
-					button.innerHTML = "☰";
-				} else {
-					menu.style.display = "block";
-					button.innerHTML = "✕";
-				}
-			}
-		</script>
 	</body>
 </html>

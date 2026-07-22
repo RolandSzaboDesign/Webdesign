@@ -1,0 +1,39 @@
+---
+layout: layouts/base.html
+---
+
+<main id="main-content" class="contact-page">
+	{% include 'partials/contact-section.html', headingLevel: 'h1', modifier: 'contact-section--page' %}
+
+	<section class="contact-guide-section">
+		<div class="container">
+			<header class="section-header">
+				<p class="section-label">{{ guide.label }}</p>
+				<h2 class="section-header__title">{{ guide.title }}</h2>
+				<p class="section-header__lead">{{ guide.lead }}</p>
+			</header>
+
+			<div class="contact-guide">
+				<article class="contact-guide__item">
+					<h3 class="contact-guide__title">{{ guide.preparation.title }}</h3>
+
+					<ul class="contact-guide__list">
+						{% for item in guide.preparation.items %}
+							<li>{{ item }}</li>
+						{% endfor %}
+					</ul>
+				</article>
+
+				<article class="contact-guide__item">
+					<h3 class="contact-guide__title">{{ guide.next.title }}</h3>
+
+					<div class="contact-guide__copy">
+						{% for paragraph in guide.next.paragraphs %}
+							<p>{{ paragraph }}</p>
+						{% endfor %}
+					</div>
+				</article>
+			</div>
+		</div>
+	</section>
+</main>
