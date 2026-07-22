@@ -1,0 +1,174 @@
+---
+layout: layouts/base.html
+---
+
+<main id="main-content">
+	<header class="website-design-hero">
+		<div class="container">
+			<div class="website-design-hero__content">
+				<p class="section-label">{{ hero.label }}</p>
+				<h1 class="website-design-hero__title">{{ hero.title }}</h1>
+				<p class="website-design-hero__lead">{{ hero.lead }}</p>
+
+				<div class="website-design-hero__actions">
+					<a class="button" href="#{{ site[locale].contactAnchor }}">{{ hero.primaryCta.label }}</a>
+					<a class="text-link" href="{{ hero.secondaryCta.url }}">{{ hero.secondaryCta.label }} <span aria-hidden="true">→</span></a>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<section class="deliverables-section">
+		<div class="container">
+			<header class="section-header">
+				<p class="section-label">{{ deliverables.label }}</p>
+				<h2 class="section-header__title">{{ deliverables.title }}</h2>
+				<p class="section-header__lead">{{ deliverables.lead }}</p>
+			</header>
+
+			<div class="deliverables">
+				{% for item in deliverables.items %}
+					<article class="deliverable">
+						<h3 class="deliverable__title">{{ item.title }}</h3>
+						<p>{{ item.text }}</p>
+					</article>
+				{% endfor %}
+			</div>
+		</div>
+	</section>
+
+	<section class="scope-section">
+		<div class="container">
+			<header class="section-header">
+				<p class="section-label">{{ scope.label }}</p>
+				<h2 class="section-header__title">{{ scope.title }}</h2>
+				<p class="section-header__lead">{{ scope.lead }}</p>
+			</header>
+
+			<div class="scope-columns">
+				<article class="scope-column">
+					<h3 class="scope-column__title">{{ scope.included.title }}</h3>
+					<ul class="scope-list">
+						{% for item in scope.included.items %}
+							<li>{{ item }}</li>
+						{% endfor %}
+					</ul>
+				</article>
+
+				<article class="scope-column scope-column--secondary">
+					<h3 class="scope-column__title">{{ scope.excluded.title }}</h3>
+					<ul class="scope-list">
+						{% for item in scope.excluded.items %}
+							<li>{{ item }}</li>
+						{% endfor %}
+					</ul>
+				</article>
+			</div>
+		</div>
+	</section>
+
+	<section class="custom-build-section">
+		<div class="container custom-build-section__container">
+			<div class="custom-build-section__heading">
+				<p class="section-label">{{ customBuild.label }}</p>
+				<h2 class="custom-build-section__title">{{ customBuild.title }}</h2>
+			</div>
+
+			<div class="custom-build-section__content">
+				<div class="custom-build-section__copy">
+					{% for paragraph in customBuild.paragraphs %}
+						<p>{{ paragraph }}</p>
+					{% endfor %}
+				</div>
+
+				<ul class="custom-build-points">
+					{% for item in customBuild.points %}
+						<li>{{ item }}</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="technology-section">
+		<div class="container">
+			<header class="section-header">
+				<p class="section-label">{{ technology.label }}</p>
+				<h2 class="section-header__title">{{ technology.title }}</h2>
+				<p class="section-header__lead">{{ technology.lead }}</p>
+			</header>
+
+			<div class="technology-options">
+				{% for item in technology.options %}
+					<article class="technology-option">
+						<h3 class="technology-option__title">{{ item.title }}</h3>
+						<p class="technology-option__text">{{ item.text }}</p>
+						<p class="technology-option__note">{{ item.note }}</p>
+					</article>
+				{% endfor %}
+			</div>
+
+			<p class="technology-section__footer">{{ technology.footer }}</p>
+		</div>
+	</section>
+
+	<section class="website-design-pricing">
+		<div class="container">
+			<header class="section-header">
+				<p class="section-label">{{ pricing.label }}</p>
+				<h2 class="section-header__title">{{ pricing.title }}</h2>
+				<p class="section-header__lead">{{ pricing.lead }}</p>
+			</header>
+
+			{% include 'partials/price-panel.html', panel: pricing %}
+
+			<div class="pricing-factors">
+				<h3 class="pricing-factors__title">{{ pricing.factorsTitle }}</h3>
+
+				<ul class="pricing-factors__list">
+					{% for item in pricing.factors %}
+						<li>{{ item }}</li>
+					{% endfor %}
+				</ul>
+			</div>
+
+			<div class="section-footer">
+				<a class="button" href="#{{ site[locale].contactAnchor }}">{{ pricing.cta.label }}</a>
+			</div>
+		</div>
+	</section>
+
+	<section class="website-design-photography">
+		<div class="container">
+			<article class="photography-callout">
+				<div>
+					<p class="section-label">{{ photography.label }}</p>
+					<h2 class="photography-callout__title">{{ photography.title }}</h2>
+				</div>
+
+				<div class="photography-callout__content">
+					<p>{{ photography.text }}</p>
+
+					{% if photography.note %}
+						<p class="photography-callout__note">{{ photography.note }}</p>
+					{% endif %}
+
+					<a class="text-link" href="{{ photography.cta.url }}" target="_blank" rel="noopener noreferrer">{{ photography.cta.label }} <span aria-hidden="true">→</span><span class="visually-hidden"> – {{ site[locale].opensInNewTab }}</span></a>
+				</div>
+			</article>
+		</div>
+	</section>
+
+	<section class="faq-section">
+		<div class="container">
+			<header class="section-header">
+				<p class="section-label">{{ faq.label }}</p>
+				<h2 class="section-header__title">{{ faq.title }}</h2>
+			</header>
+
+			{% include 'partials/faq-list.html', items: faq.items %}
+		</div>
+	</section>
+
+	{% include 'partials/contact-section.html' %}
+</main>

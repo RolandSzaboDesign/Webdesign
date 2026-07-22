@@ -1,65 +1,114 @@
 module.exports = {
+	name: "Roland Szabó Design",
 	url: "https://rolandszabo.design",
+	year: new Date().getFullYear(),
+
 	languages: [
-		{ code: "en", label: "In English", },
-		{ code: "hu", label: "Magyarul", },
+		{
+			code: "hu",
+			label: "Magyar"
+		},
+		{
+			code: "en",
+			label: "English"
+		}
 	],
-	en: {
-		name: "Roland Szabó Design",
-		title: "A Fast Website is Not a Premium Feature, It should be Standard.",
-		toggleNavigation: "Toggle Navigation",
 
-		navTitle: "Navigation",
-		langTitle: "Languages",
-
-		navAbout: "About",
-		navServices: "Services",
-		navPortfolio: "Portfolio",
-		navHireMe: "Hire Me",
-		navBlog: "Blog",
-
-		slugAbout: "about",
-		slugServices: "services",
-		slugPortfolio: "portfolio",
-		slugHireMe: "hire-me",
-		slugBlog: "blog",
-
-		lightboxNext: "Next Photo",
-		lightboxPrevious: "Previous Photo",
-		lightboxClose: "Close",
-
-		copyright: "All rights reserved.",
-		footerText: "Website hand-crafted in HTML/CSS/JS.",
-		footerSsg: "Generated with",
-		footerCdn: "hosted on",
-	},
 	hu: {
 		name: "Roland Szabó Design",
-		title: "A Gyors Weboldal Nem Extra Szolgáltatás, hanem Alapkövetelmény.",
-		toggleNavigation: "Menü kinyitása/becsukása",
+		locale: "hu_HU",
+		languageShort: "HU",
+		switchLanguageLabel: "Váltás angol nyelvre",
+		brandDescription: "Weboldalak szolgáltatóknak és kisvállalkozásoknak",
+		skipLink: "Ugrás a fő tartalomhoz",
+		menuOpen: "Menü megnyitása",
+		menuClose: "Menü bezárása",
+		navTitle: "Fő navigáció",
+		contactAnchor: "kapcsolat",
+		opensInNewTab: "Új lapon nyílik",
+		socialImage: {
+			src: "/assets/images/og-image.webp",
+			alt: "Roland Szabó Design – személyre szabott weboldalak szolgáltatóknak és kisvállalkozásoknak"
+		},
 
-		navTitle: "Navigáció",
-		langTitle: "Nyelvek",
+		nav: {
+			websiteDesign: {
+				label: "Weboldalkészítés",
+				url: "/hu/weboldalkeszites/"
+			},
+			process: {
+				label: "Így dolgozom",
+				url: "/hu/igy-dolgozom/"
+			},
+			caseStudy: {
+				label: "Esettanulmány",
+				url: "/hu/esettanulmany/"
+			},
+			contact: {
+				label: "Kapcsolat",
+				url: "/hu/kapcsolat/"
+			}
+		},
 
-		navAbout: "Rólam",
-		navServices: "Szolgáltatások",
-		navPortfolio: "Munkáim",
-		navHireMe: "Kapcsolat",
-		navBlog: "Blog",
+		form: {
+			successUrl: "/hu/koszonom/",
+			honeypot: "Ezt a mezőt hagyd üresen:",
+			name: "Név",
+			phone: "Telefonszám",
+			submitCallback: "Visszahívást kérek",
+			privacy: "Az adatokat kizárólag a kapcsolatfelvételhez használom."
+		},
 
-		slugAbout: "rolam",
-		slugServices: "szolgaltatasok",
-		slugPortfolio: "munkaim",
-		slugHireMe: "kapcsolat",
-		slugBlog: "blog",
+		footerText: "Weboldalak szolgáltatóknak és kisvállalkozásoknak.",
+		copyright: "Minden jog fenntartva."
+	},
 
-		lightboxNext: "Következő Kép",
-		lightboxPrevious: "Előző Kép",
-		lightboxClose: "Bezárás",
+	en: {
+		name: "Roland Szabó Design",
+		locale: "en_GB",
+		languageShort: "EN",
+		switchLanguageLabel: "Switch to Hungarian",
+		brandDescription: "Websites for service providers and small businesses",
+		skipLink: "Skip to main content",
+		menuOpen: "Open menu",
+		menuClose: "Close menu",
+		navTitle: "Main navigation",
+		contactAnchor: "contact",
+		opensInNewTab: "Opens in a new tab",
+		socialImage: {
+			src: "/assets/images/og-image.webp",
+			alt: "Roland Szabó Design – custom websites for service providers and small businesses"
+		},
 
-		copyright: "Minden jog fenntartva.",
-		footerText: "Ez a weboldal kézzel készült HTML/CSS/JS nyelveken.",
-		footerSsg: "Generátor:",
-		footerCdn: "hoszting:",
+		nav: {
+			websiteDesign: {
+				label: "Website design",
+				url: "/en/website-design/"
+			},
+			process: {
+				label: "How I work",
+				url: "/en/how-i-work/"
+			},
+			caseStudy: {
+				label: "Case study",
+				url: "/en/case-study/"
+			},
+			contact: {
+				label: "Contact",
+				url: "/en/contact/"
+			}
+		},
+
+		form: {
+			successUrl: "/en/thank-you/",
+			honeypot: "Leave this field empty:",
+			name: "Name",
+			phone: "Phone number",
+			submitCallback: "Request a callback",
+			privacy: "I only use your details to respond to your enquiry."
+		},
+
+		footerText: "Websites for service providers and small businesses.",
+		copyright: "All rights reserved."
 	}
 };

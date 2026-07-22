@@ -1,0 +1,12 @@
+<ol class="process-timeline">
+	{% for item in steps %}
+		<li class="process-step">
+			<div class="process-step__marker" aria-hidden="true">{{ forloop.index | prepend: "0" | slice: -2, 2 }}</div>
+
+			<div class="process-step__content">
+				<h3 class="process-step__title">{{ item.title }}</h3>
+				<p>{{ item.text }}</p>
+			</div>
+		</li>
+	{% endfor %}
+</ol>

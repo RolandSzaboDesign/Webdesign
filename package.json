@@ -1,9 +1,10 @@
 {
 	"scripts": {
-		"build": "npx @11ty/eleventy"
+		"build": "eleventy",
+		"serve": "eleventy --serve"
 	},
 	"dependencies": {
-		"@11ty/eleventy": "^2.0.1"
+		"@11ty/eleventy": "3.1.6"
 	},
 	"engines": {
 		"node": ">=18"

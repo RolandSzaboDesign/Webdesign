@@ -1,0 +1,247 @@
+---
+layout: layouts/base.html
+---
+
+<main id="main-content">
+	<section class="home-hero">
+		<div class="container home-hero__container">
+			<h1 class="home-hero__heading">{{ hero.heading }}</h1>
+
+			<p class="home-hero__statement"><span class="home-hero__statement-accent">{{ hero.statementAccent }}</span> {{ hero.statementMiddle }}<span class="home-hero__statement-line">{{ hero.statementLine }}</span></p>
+
+			<p class="home-hero__intro">{{ hero.intro }}</p>
+
+			<div class="home-hero__actions">
+				<a class="button" href="#{{ site[locale].contactAnchor }}">{{ hero.primaryCta.label }}</a>
+				<a class="text-link" href="{{ hero.secondaryCta.url }}">{{ hero.secondaryCta.label }} <span aria-hidden="true">→</span></a>
+			</div>
+
+			<p class="home-hero__ai-note">{{ hero.aiNote }}</p>
+		</div>
+	</section>
+
+	<section class="website-types-section">
+		<div class="container">
+			<header class="section-header">
+				<p class="section-label">{{ websiteTypes.label }}</p>
+				<h2 class="section-header__title">{{ websiteTypes.title }}</h2>
+				<p class="section-header__lead">{{ websiteTypes.lead }}</p>
+			</header>
+
+			<ul class="website-types">
+				{% for item in websiteTypes.items %}
+					<li class="website-type">
+						<h3 class="website-type__title">{{ item.title }}</h3>
+						<p class="website-type__text">{{ item.text }}</p>
+					</li>
+				{% endfor %}
+			</ul>
+
+			<article class="website-technology">
+				<div class="website-technology__heading">
+					<p class="section-label">{{ websiteTypes.technology.label }}</p>
+					<h3 class="website-technology__title">{{ websiteTypes.technology.title }}</h3>
+					<p class="website-technology__lead">{{ websiteTypes.technology.lead }}</p>
+				</div>
+
+				<div class="website-technology__options">
+					{% for item in websiteTypes.technology.options %}
+						<section class="website-technology__option">
+							<h4>{{ item.title }}</h4>
+							<p>{{ item.text }}</p>
+						</section>
+					{% endfor %}
+
+					<p class="website-technology__note">{{ websiteTypes.technology.note }}</p>
+				</div>
+			</article>
+
+			<div class="section-footer">
+				<a class="text-link" href="{{ websiteTypes.cta.url }}">{{ websiteTypes.cta.label }} <span aria-hidden="true">→</span></a>
+			</div>
+		</div>
+	</section>
+
+	<section class="about-section">
+		<div class="container about-section__grid">
+			<div class="about-section__content">
+				<p class="section-label">{{ about.label }}</p>
+				<h2 class="about-section__title">{{ about.title }}</h2>
+
+				<div class="about-section__copy">
+					{% for paragraph in about.paragraphs %}
+						<p>{{ paragraph }}</p>
+					{% endfor %}
+				</div>
+
+				<ul class="about-section__details">
+					{% for item in about.details %}
+						<li class="about-section__detail">{{ item }}</li>
+					{% endfor %}
+				</ul>
+			</div>
+
+			<figure class="about-section__portrait">
+				<img class="about-section__image" src="{{ about.image.src }}" alt="{{ about.image.alt }}" width="{{ about.image.width }}" height="{{ about.image.height }}" loading="lazy">
+
+				{% if about.image.caption %}
+					<figcaption class="about-section__caption">{{ about.image.caption }}</figcaption>
+				{% endif %}
+			</figure>
+		</div>
+	</section>
+
+	<section class="work-process-section">
+		<div class="container">
+			<header class="section-header">
+				<p class="section-label">{{ process.label }}</p>
+				<h2 class="section-header__title">{{ process.title }}</h2>
+				<p class="section-header__lead">{{ process.lead }}</p>
+			</header>
+
+			{% include 'partials/process-timeline.html', steps: process.steps %}
+
+			<article class="ai-callout">
+				<div class="ai-callout__heading">
+					<p class="section-label">{{ process.ai.label }}</p>
+					<h3 class="ai-callout__title">{{ process.ai.title }}</h3>
+				</div>
+
+				<div class="ai-callout__content">
+					{% for paragraph in process.ai.paragraphs %}
+						<p>{{ paragraph }}</p>
+					{% endfor %}
+
+					<p class="ai-callout__speed"><strong>{{ process.ai.speedLabel }}</strong> {{ process.ai.speedText }}</p>
+				</div>
+			</article>
+
+			<div class="section-footer">
+				<a class="text-link" href="{{ process.cta.url }}">{{ process.cta.label }} <span aria-hidden="true">→</span></a>
+			</div>
+		</div>
+	</section>
+
+	<section class="case-study-section">
+		<div class="container">
+			<header class="section-header">
+				<p class="section-label">{{ caseStudy.label }}</p>
+				<h2 class="section-header__title">{{ caseStudy.title }}</h2>
+				<p class="section-header__lead">{{ caseStudy.lead }}</p>
+			</header>
+
+			<figure class="case-study-visual">
+				<div class="case-study-monitor">
+					<div class="case-study-monitor__screen">
+						<img class="case-study-visual__image" src="{{ caseStudy.image.src }}" alt="{{ caseStudy.image.alt }}" width="{{ caseStudy.image.width }}" height="{{ caseStudy.image.height }}" loading="lazy">
+					</div>
+
+					<div class="case-study-monitor__stand" aria-hidden="true"></div>
+				</div>
+
+				<figcaption class="case-study-visual__caption">{{ caseStudy.image.caption }}</figcaption>
+			</figure>
+
+			<div class="case-study-editorial">
+				<div class="case-study-story">
+					<p class="section-label">{{ caseStudy.story.label }}</p>
+					<h3 class="case-study-story__title">{{ caseStudy.story.title }}</h3>
+
+					<div class="case-study-story__copy">
+						{% for paragraph in caseStudy.story.paragraphs %}
+							<p>{{ paragraph }}</p>
+						{% endfor %}
+					</div>
+				</div>
+
+				<aside class="case-study-results">
+					<h3 class="case-study-results__title">{{ caseStudy.results.title }}</h3>
+					<ul class="case-study-results__list">
+						{% for item in caseStudy.results.items %}
+							<li>{{ item }}</li>
+						{% endfor %}
+					</ul>
+
+					<a class="text-link" href="{{ caseStudy.cta.url }}">{{ caseStudy.cta.label }} <span aria-hidden="true">→</span></a>
+				</aside>
+			</div>
+		</div>
+	</section>
+
+	<section class="testimonials-section">
+		<div class="container">
+			<header class="testimonials-section__header">
+				<p class="section-label">{{ testimonials.label }}</p>
+				<h2 class="testimonials-section__title">{{ testimonials.title }}</h2>
+			</header>
+
+			<div class="card-grid">
+				{% for item in testimonials.items %}
+					<figure class="info-card testimonial-card">
+						<blockquote class="testimonial-card__quote">
+							<p>„{{ item.quote }}”</p>
+						</blockquote>
+
+						<figcaption class="testimonial-card__author">
+							<span class="testimonial-card__name">{{ item.name }}</span>
+							<span class="testimonial-card__role">{{ item.role }}</span>
+							<a class="testimonial-card__link" href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.website }}<span class="visually-hidden"> – {{ site[locale].opensInNewTab }}</span></a>
+						</figcaption>
+					</figure>
+				{% endfor %}
+			</div>
+		</div>
+	</section>
+
+	<section class="pricing-section">
+		<div class="container">
+			<header class="section-header">
+				<p class="section-label">{{ pricing.label }}</p>
+				<h2 class="section-header__title">{{ pricing.title }}</h2>
+				<p class="section-header__lead">{{ pricing.lead }}</p>
+			</header>
+
+			{% include 'partials/price-panel.html', panel: pricing.price %}
+
+			<section class="pricing-benefits">
+				<header class="pricing-benefits__header">
+					<p class="section-label">{{ pricing.benefits.label }}</p>
+					<h3 class="pricing-benefits__title">{{ pricing.benefits.title }}</h3>
+				</header>
+
+				<div class="pricing-benefits__grid">
+					{% for item in pricing.benefits.items %}
+						<article class="pricing-benefit">
+							<h4 class="pricing-benefit__title">{{ item.title }}</h4>
+							<p>{{ item.text }}</p>
+						</article>
+					{% endfor %}
+				</div>
+			</section>
+
+			<div class="pricing-extras">
+				<p class="section-label">{{ pricing.extras.label }}</p>
+				<p>{{ pricing.extras.text }}</p>
+			</div>
+
+			<article class="photography-callout">
+				<div>
+					<p class="section-label">{{ pricing.photography.label }}</p>
+					<h3 class="photography-callout__title">{{ pricing.photography.title }}</h3>
+				</div>
+
+				<div class="photography-callout__content">
+					<p>{{ pricing.photography.text }}</p>
+
+					{% if pricing.photography.note %}
+						<p class="photography-callout__note">{{ pricing.photography.note }}</p>
+					{% endif %}
+
+					<a class="text-link" href="{{ pricing.photography.cta.url }}" target="_blank" rel="noopener noreferrer">{{ pricing.photography.cta.label }} <span aria-hidden="true">→</span><span class="visually-hidden"> – {{ site[locale].opensInNewTab }}</span></a>
+				</div>
+			</article>
+		</div>
+	</section>
+
+	{% include 'partials/contact-section.html' %}
+</main>

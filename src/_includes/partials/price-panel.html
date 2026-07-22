@@ -1,0 +1,12 @@
+<div class="price-panel">
+	<div class="price-panel__price">
+		<p class="price-panel__value">{{ panel.value }}</p>
+		<p class="price-panel__note">{{ panel.note }}</p>
+	</div>
+
+	<div class="price-panel__copy">
+		{% for paragraph in panel.paragraphs %}
+			<p>{{ paragraph }}</p>
+		{% endfor %}
+	</div>
+</div>

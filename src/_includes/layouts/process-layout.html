@@ -1,0 +1,92 @@
+---
+layout: layouts/base.html
+---
+
+<main id="main-content" class="work-process-page">
+	<header class="work-process-hero">
+		<div class="container">
+			<div class="work-process-hero__content">
+				<p class="section-label">{{ hero.label }}</p>
+				<h1 class="work-process-hero__title">{{ hero.title }}</h1>
+				<p class="work-process-hero__lead">{{ hero.lead }}</p>
+				<p class="work-process-hero__note">{{ hero.note }}</p>
+
+				<div class="work-process-hero__actions">
+					<a class="button" href="#{{ site[locale].contactAnchor }}">{{ hero.primaryCta.label }}</a>
+					<a class="text-link" href="{{ hero.secondaryCta.url }}">{{ hero.secondaryCta.label }} <span aria-hidden="true">→</span></a>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<section class="detailed-process-section">
+		<div class="container">
+			<header class="section-header">
+				<p class="section-label">{{ process.label }}</p>
+				<h2 class="section-header__title">{{ process.title }}</h2>
+				<p class="section-header__lead">{{ process.lead }}</p>
+			</header>
+
+			{% include 'partials/process-timeline.html', steps: process.steps %}
+		</div>
+	</section>
+
+	<section class="responsibilities-section">
+		<div class="container">
+			<header class="section-header">
+				<p class="section-label">{{ responsibilities.label }}</p>
+				<h2 class="section-header__title">{{ responsibilities.title }}</h2>
+				<p class="section-header__lead">{{ responsibilities.lead }}</p>
+			</header>
+
+			{% include 'partials/comparison-columns.html', left: responsibilities.client, right: responsibilities.designer %}
+		</div>
+	</section>
+
+	<section class="ai-process-section">
+		<div class="container">
+			<header class="section-header">
+				<p class="section-label">{{ ai.label }}</p>
+				<h2 class="section-header__title">{{ ai.title }}</h2>
+				<p class="section-header__lead">{{ ai.lead }}</p>
+			</header>
+
+			<p class="ai-workflow__statement">{{ ai.statement }}</p>
+
+			<ol class="ai-workflow">
+				{% for item in ai.steps %}
+					<li class="ai-workflow__step{% if item.emphasis %} ai-workflow__step--emphasis{% endif %}">
+						<div class="ai-workflow__marker">
+							<span class="ai-workflow__number">{{ item.number }}</span>
+							<span class="ai-workflow__label">{{ item.label }}</span>
+						</div>
+
+						<div class="ai-workflow__content">
+							<h3 class="ai-workflow__title">{{ item.title }}</h3>
+							<p class="ai-workflow__text">{{ item.text }}</p>
+						</div>
+
+						<ul class="ai-workflow__list">
+							{% for point in item.items %}
+								<li>{{ point }}</li>
+							{% endfor %}
+						</ul>
+					</li>
+				{% endfor %}
+			</ol>
+		</div>
+	</section>
+
+	<section class="faq-section">
+		<div class="container">
+			<header class="section-header">
+				<p class="section-label">{{ faq.label }}</p>
+				<h2 class="section-header__title">{{ faq.title }}</h2>
+			</header>
+
+			{% include 'partials/faq-list.html', items: faq.items %}
+		</div>
+	</section>
+
+	{% include 'partials/contact-section.html' %}
+</main>

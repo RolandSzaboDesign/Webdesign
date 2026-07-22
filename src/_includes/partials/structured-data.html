@@ -1,0 +1,58 @@
+{% assign organizationId = site.url | append: "/#organization" %}
+{% assign personId = site.url | append: "/#person" %}
+{% assign websiteId = site.url | append: "/#website" %}
+{% assign webpageId = site.url | append: page.url | append: "#webpage" %}
+{% assign telephone = contact.phoneHref | remove: "tel:" %}
+
+<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@graph": [
+			{
+				"@type": "Organization",
+				"@id": "{{ organizationId }}",
+				"name": "{{ site.name }}",
+				"url": "{{ site.url }}/",
+				"email": "{{ contact.email }}",
+				"telephone": "{{ telephone }}",
+				"founder": {
+					"@id": "{{ personId }}"
+				}
+			},
+			{
+				"@type": "Person",
+				"@id": "{{ personId }}",
+				"name": "Roland Szabó",
+				"url": "{{ site.url }}/",
+				"worksFor": {
+					"@id": "{{ organizationId }}"
+				}
+			},
+			{
+				"@type": "WebSite",
+				"@id": "{{ websiteId }}",
+				"name": "{{ site.name }}",
+				"url": "{{ site.url }}/",
+				"publisher": {
+					"@id": "{{ organizationId }}"
+				},
+				"inLanguage": [
+					"hu",
+					"en"
+				]
+			},
+			{
+				"@type": "WebPage",
+				"@id": "{{ webpageId }}",
+				"url": "{{ site.url }}{{ page.url }}",
+				"isPartOf": {
+					"@id": "{{ websiteId }}"
+				},
+				"about": {
+					"@id": "{{ organizationId }}"
+				},
+				"inLanguage": "{{ locale }}"
+			}
+		]
+	}
+</script>

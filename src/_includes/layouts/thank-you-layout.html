@@ -1,0 +1,24 @@
+---
+layout: layouts/base.html
+---
+
+<main id="main-content" class="thank-you-page">
+	<section class="thank-you-section">
+		<div class="container">
+			<div class="thank-you-section__content">
+				<p class="section-label">{{ thankYou.label }}</p>
+				<h1 class="thank-you-section__title">{{ thankYou.title }}</h1>
+				<p class="thank-you-section__lead">{{ thankYou.lead }}</p>
+
+				{% if thankYou.note %}
+					<p class="thank-you-section__note">{{ thankYou.note }}</p>
+				{% endif %}
+
+				<div class="button-group thank-you-section__actions">
+					<a class="button" href="{{ thankYou.primaryCta.url }}">{{ thankYou.primaryCta.label }}</a>
+					<a class="text-link" href="{{ thankYou.secondaryCta.url }}">{{ thankYou.secondaryCta.label }} <span aria-hidden="true">→</span></a>
+				</div>
+			</div>
+		</div>
+	</section>
+</main>

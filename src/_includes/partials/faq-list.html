@@ -1,0 +1,14 @@
+<div class="faq-list">
+	{% for item in items %}
+		<details class="faq-item">
+			<summary class="faq-item__question">
+				<span>{{ item.question }}</span>
+				<span class="faq-item__icon" aria-hidden="true"></span>
+			</summary>
+
+			<div class="faq-item__answer">
+				<p>{{ item.answer }}</p>
+			</div>
+		</details>
+	{% endfor %}
+</div>
